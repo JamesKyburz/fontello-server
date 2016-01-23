@@ -20,9 +20,23 @@ sha1-hash
 Then add the following to your index.html.
 
 ```html
-<link rel="stylesheet" href="fontello/css/fontello.css" charset="utf-8">
-<link rel="stylesheet" href="fontello/css/animation.css" charset="utf-8">
+<link rel="stylesheet" href="http://localhost:2016/sha1-hash/fontello/css/fontello.css" charset="utf-8">
+<link rel="stylesheet" href="http://localhost:2016/sha1-hash/fontello/css/animation.css" charset="utf-8">
 ```
+
+# Get `config.json` for a hash
+
+```
+curl http://localhost:2016/sha1-hash/fontello/config.json -o config.json
+```
+
+# Updating fonts
+
+Drag the config.json to [fontello].
+
+Then upload a new config.json downloaded from [fontello].
+
+# Docker support
 
 Check out `package.json` for docker commands.
 
