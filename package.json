@@ -1,0 +1,33 @@
+{
+  "name": "fontello-server",
+  "description": "fontello-server",
+  "keywords": [
+    "fonts",
+    "fontello",
+    "server-base",
+    "leveldb"
+  ],
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jameskyburz/fontello-server.git"
+  },
+  "author": {
+    "name": "James Kyburz",
+    "email": "james.kyburz@gmail.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "predocker:build": "docker build -t server-base git@github.com:jameskyburz/server-base.git",
+    "docker:build": "docker build -t fontello-server .",
+    "docker:deploy": "npm run docker:build && docker stop fontello-server || true && docker rm fontello-server || true && npm run docker:run",
+    "docker:run": "docker run -d --restart=always -p 2016:2016 -e DB_PATH=/opt/fontellodb -v /opt/fontellodb:/opt/fontellodb --name fontello-server fontello-server",
+    "start": "node index"
+  },
+  "dependencies": {
+    "fontello-mount": "2.0.4",
+    "leveldb-mount": "1.0.5",
+    "server-base": "1.0.8"
+  },
+  "license": "MIT"
+}
