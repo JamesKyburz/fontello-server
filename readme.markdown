@@ -2,7 +2,9 @@
 
 fontello server
 
-fonts are persisted in leveldb
+fonts are persisted in leveldb.
+
+Now your projects can use your fonts with no fontello setup.
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 

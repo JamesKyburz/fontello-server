@@ -5,7 +5,8 @@
     "fonts",
     "fontello",
     "server-base",
-    "leveldb"
+    "leveldb",
+    "cdn"
   ],
   "version": "1.0.0",
   "repository": {
