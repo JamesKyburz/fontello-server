@@ -32,7 +32,7 @@ curl http://localhost:2016/sha1-hash/fontello/config.json -o config.json
 
 # client.html
 
-* Drag and drop fontello's `config.json`
+* Drag and drop fontello's downloaded zip file
 * Copy links to clipboard
 * Download `config.json`
 
