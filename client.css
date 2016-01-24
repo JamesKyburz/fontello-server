@@ -1,0 +1,17 @@
+.drag {
+  border: dashed #888;
+}
+html, body {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+.copy {
+  display: none;
+}
+input, button {
+  padding: 5px;
+  margin: 5px 0 5px 0;
+  float: left;
+  clear: both;
+}
