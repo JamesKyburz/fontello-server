@@ -30,7 +30,13 @@ Then add the following to your index.html.
 curl http://localhost:2016/sha1-hash/fontello/config.json -o config.json
 ```
 
-# Updating fonts
+# client.html
+
+* Drag and drop fontello's `config.json`
+* Copy links to clipboard
+* Download `config.json`
+
+# Updating fonts using http api
 
 Drag the config.json to [fontello].
 
