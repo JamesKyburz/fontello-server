@@ -1,9 +1,14 @@
 var fontelloMount = require('fontello-mount')
 var store = require('./store')
 var leveldb = require('leveldb-mount').routes()
+var fs = require('fs')
 module.exports = routes
 
 function routes (router) {
+  ;['client.js', 'client.html', 'client.css']
+  .map(client =>
+       router.set(client, (q, r) => fs.createReadStream(client).pipe(r))
+  )
   router.set('/:hash/fontello/*', (q, r, params) => {
     store.getConfig(params.hash, (err, config) => {
       if (err) return this.notFound(q, r)
