@@ -24,12 +24,18 @@ download.onclick = () => {
 
 window.dragDrop(body, files => {
   var file = files[0]
-  var prefix = file.name.match(/(fontello-[^ .]*)/)[1]
   if (!file) return
   var reader = new window.FileReader()
   reader.onload = e => {
-    var zip = new JSZip(e.target.result)
-    var config = zip.files[`${prefix}/config.json`].asText()
+    var config
+    if (file.name.match(/config.*\.json$/)) {
+      config = e.target.result
+    } else {
+      var prefix = file.name.match(/(fontello-[^ .]*)/)
+      if (!prefix) return window.alert(`invalid file ${file.name}`)
+      var zip = new JSZip(e.target.result)
+      config = zip.files[`${prefix[1]}/config.json`].asText()
+    }
 
     var xhr = new window.XMLHttpRequest()
     xhr.open('POST', '/upload/config.json')
