@@ -1,7 +1,7 @@
 var $ = window.document.querySelector.bind(window.document)
 var body = window.document.body
 var baseUrl = `${window.location.protocol}//${window.location.host}`
-var linkArea = $('.link-area')
+var copyArea = $('.copy-area')
 var download = $('.download')
 var hash = $('.hash')
 var copyButton = $('.copy')
@@ -41,14 +41,14 @@ window.dragDrop(body, files => {
     xhr.open('POST', '/upload/config.json')
     xhr.onload = response => {
       if (xhr.status === 200) {
-        linkArea.textContent = ['fontello.css', 'animation.css']
+        copyArea.textContent = ['fontello.css', 'animation.css']
         .map(name => `<link rel="stylesheet" href="${baseUrl}/${xhr.responseText}/fontello/css/${name}" charset="utf-8">`)
         .join('\n')
 
         hash.value = xhr.responseText
         copyButton.style.display = 'block'
 
-        new Clipboard(copyButton, { text: () => linkArea.textContent })
+        new Clipboard(copyButton, { text: () => copyArea.textContent })
         .on('success', () => {
           copyButton.textContent = 'Copied!'
           setTimeout(
