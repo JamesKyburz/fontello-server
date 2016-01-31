@@ -17,6 +17,8 @@ download.onclick = () => {
       a.download = 'config.json'
       a.href = `data:application/json; base64, ${window.btoa(xhr.response)}`
       a.click()
+    } else {
+      showxhrStatus(xhr)
     }
   }
   xhr.send()
@@ -56,9 +58,16 @@ window.dragDrop(body, files => {
             1500
           )
         })
+      } else {
+        showxhrStatus(xhr)
       }
     }
     xhr.send(config)
   }
+
   reader.readAsArrayBuffer(file)
 })
+
+function showxhrStatus (xhr) {
+  copyArea.textContent = `error ${xhr.status}`
+}
