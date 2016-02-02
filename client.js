@@ -44,7 +44,7 @@ window.dragDrop(body, files => {
     xhr.onload = response => {
       if (xhr.status === 200) {
         copyArea.textContent = ['fontello.css', 'animation.css']
-        .map(name => `<link rel="stylesheet" href="${baseUrl}/${xhr.responseText}/fontello/css/${name}" charset="utf-8">`)
+        .map(name => `<link rel="stylesheet" href="${baseUrl}/${xhr.responseText}/fontello/css/${name}">`)
         .join('\n')
 
         hash.value = xhr.responseText
