@@ -1,6 +1,6 @@
 var fontelloMount = require('fontello-mount')
 var store = require('./store')
-var leveldb = require('leveldb-mount').routes()
+var leveldb = require('leveldb-mount')
 var fs = require('fs')
 var crypto = require('crypto')
 module.exports = routes
@@ -45,8 +45,9 @@ function routes (router) {
   })
 
   if (!process.env.REPL_CREDENTIALS) return
-  router.set('/repl.html', leveldb.html)
-  router.set('/repl.js', leveldb.js)
+  var replRoutes = leveldb.routes({ replCredentials: process.env.REPL_CREDENTIALS })
+  router.set('/repl.html', replRoutes.html)
+  router.set('/repl.js', replRoutes.js)
 }
 
 function fontello (config, cb) {
