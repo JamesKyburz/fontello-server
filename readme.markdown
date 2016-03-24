@@ -8,16 +8,20 @@ Now your projects can use your fonts with no fontello setup.
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-# usage with /client.html
+# browse to /
 
-`/client.html` supports 
+Runs on port 2016
+
+`/` supports
 * Drag and drop of fontello's downloaded zip file.
 * Automatic uploads to fontello-server displaying hashed links.
 * Copy links to clipboard.
 * Download of `config.json` file.
 * Works well with [fontello] draging files between the two windows.
 
-# usage http api
+As [fontello] also supports drag and drop. `config.json` and `fontello zip` can be dragged and dropped between the two windows.
+
+# api
 
 post config.json from [fontello] to receive a hash
 
@@ -55,7 +59,12 @@ Check out `package.json` for docker commands.
 
 # `/repl.html`
 
+Runs on port 2017
+
 A leveldb repl is available if the server is started with env variable `REPL_CREDENTIALS` set
+
+If security matters then run docker with -e REPL_CREDENTIALS `user:pass`
+is the default.
 
 Checkout [leveldb-mount] for details.
 

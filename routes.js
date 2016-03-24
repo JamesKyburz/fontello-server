@@ -5,9 +5,9 @@ var crypto = require('crypto')
 module.exports = routes
 
 function routes (router) {
-  ;['client.js', 'client.html', 'client.css']
+  ;['client.js', '/', 'client.css']
   .map(client =>
-    router.set(client, (q, r) => fs.createReadStream(client).pipe(r))
+    router.set(client, (q, r) => fs.createReadStream(client === '/' ? 'client.html' : client).pipe(r))
   )
   router.set('/:hash/fontello/*', (q, r, params) => {
     store.getConfig(params.hash, (err, config) => {
