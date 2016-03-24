@@ -1,2 +1,3 @@
 FROM server-base
 EXPOSE 2016
+EXPOSE 2017
