@@ -28,7 +28,7 @@
     "start": "node index"
   },
   "dependencies": {
-    "fontello-mount": "2.0.9",
+    "fontello-mount": "2.0.10",
     "leveldb-mount": "2.0.2",
     "server-base": "2.0.1"
   },
