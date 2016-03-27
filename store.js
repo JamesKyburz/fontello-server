@@ -1,6 +1,6 @@
 var crypto = require('crypto')
 var stringify = require('json-stable-stringify')
-var leveldb = require('leveldb-mount').db({ dbPath: process.env.DB_PATH })
+var leveldb = require('leveldb-mount').db(process.env.DB_PATH)
 
 module.exports = cacheStore
 cacheStore.getConfig = getConfig

@@ -8,6 +8,8 @@ service(name, routes)
 .start()
 
 if (process.env.DB_REPL_PORT) {
-  var dbOptions = { dbPath: process.env.DB_PATH, replCredentials: process.env.REPL_CREDENTIALS }
-  leveldb.server(Number(process.env.DB_REPL_PORT), dbOptions)
+  leveldb.server(
+    Number(process.env.DB_REPL_PORT),
+    process.env.DB_PATH, { replCredentials: process.env.REPL_CREDENTIALS }
+  )
 }
