@@ -11,7 +11,7 @@ function getConfig (hash, cb) {
 }
 
 function cacheStore (config) {
-  var hash = md5(config)
+  var hash = sha1(config)
 
   var db = leveldb.namespace(hash)
 
@@ -56,7 +56,7 @@ function cacheStore (config) {
   }
 }
 
-function md5 (config) {
+function sha1 (config) {
   var hash = crypto.createHash('sha1')
   var value = stringify(config)
   return hash.update(value).digest('hex')
