@@ -25,6 +25,7 @@
     "docker:run": "docker run -d --restart=always -e CORS=true -p 2016:2016 -p 2017:2017 -e DB_PATH=/opt/fontellodb -v /opt/fontellodb:/opt/fontellodb --name fontello-server fontello-server",
     "docker:update": "npm run docker:build && docker kill fontello-server ; docker rm fontello-server ; npm run docker:run",
     "prepublish": "standard",
+    "preversion": "standard",
     "start": "node index"
   },
   "dependencies": {
