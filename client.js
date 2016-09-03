@@ -10,7 +10,7 @@ var JSZip = window.jszip
 download.onclick = () => {
   if (!hash.value) return
   var xhr = new window.XMLHttpRequest()
-  xhr.open('GET', `/${hash.value}/fontello/config.json`)
+  xhr.open('GET', `${hash.value}/fontello/config.json`)
   xhr.onload = response => {
     if (xhr.status === 200) {
       var a = document.createElement('a')
@@ -40,7 +40,7 @@ window.dragDrop(body, files => {
     }
 
     var xhr = new window.XMLHttpRequest()
-    xhr.open('POST', '/upload/config.json')
+    xhr.open('POST', 'upload/config.json')
     xhr.onload = response => {
       if (xhr.status === 200) {
         copyArea.textContent = ['fontello.css', 'animation.css']
