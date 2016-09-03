@@ -1,6 +1,5 @@
 var $ = window.document.querySelector.bind(window.document)
 var body = window.document.body
-var baseUrl = `${window.location.protocol}//${window.location.host}`
 var copyArea = $('.copy-area')
 var download = $('.download')
 var hash = $('.hash')
@@ -38,6 +37,8 @@ window.dragDrop(body, files => {
       var zip = new JSZip(e.target.result)
       config = zip.files[`${prefix[1]}/config.json`].asText()
     }
+
+    var baseUrl = window.location.href.replace(/\/$/, '')
 
     var xhr = new window.XMLHttpRequest()
     xhr.open('POST', 'upload/config.json')
