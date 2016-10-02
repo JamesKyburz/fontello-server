@@ -23,6 +23,11 @@ download.onclick = () => {
   xhr.send()
 }
 
+var xhr = new window.XMLHttpRequest()
+xhr.open('GET', 'lasthash')
+xhr.onload = showHash
+xhr.send()
+
 window.dragDrop(body, files => {
   var file = files[0]
   if (!file) return
@@ -38,38 +43,41 @@ window.dragDrop(body, files => {
       config = zip.files[`${prefix[1]}/config.json`].asText()
     }
 
-    var baseUrl = window.location.href.replace(/\/$/, '')
-
     var xhr = new window.XMLHttpRequest()
     xhr.open('POST', 'upload/config.json')
-    xhr.onload = response => {
-      if (xhr.status === 200) {
-        copyArea.textContent = ['fontello.css', 'animation.css']
-        .map(name => `<link rel="stylesheet" href="${baseUrl}/${xhr.responseText}/fontello/css/${name}">`)
-        .join('\n')
-
-        hash.value = xhr.responseText
-        copyButton.style.display = 'block'
-
-        new Clipboard(copyButton, { text: () => copyArea.textContent })
-        .on('success', () => {
-          copyButton.textContent = 'Copied!'
-          setTimeout(
-            () => {
-              copyButton.textContent = 'Copy to clipboard'
-            },
-            1500
-          )
-        })
-      } else {
-        showxhrStatus(xhr)
-      }
-    }
+    xhr.onload = showHash
     xhr.send(config)
   }
 
   reader.readAsArrayBuffer(file)
 })
+
+function showHash () {
+  var baseUrl = window.location.href.replace(/\/$/, '')
+  var xhr = this
+  if (xhr.status === 200) {
+    if (!xhr.responseText) return
+    copyArea.textContent = ['fontello.css', 'animation.css']
+    .map(name => `<link rel="stylesheet" href="${baseUrl}/${xhr.responseText}/fontello/css/${name}">`)
+    .join('\n')
+
+    hash.value = xhr.responseText
+    copyButton.style.display = 'block'
+
+    new Clipboard(copyButton, { text: () => copyArea.textContent })
+    .on('success', () => {
+      copyButton.textContent = 'Copied!'
+      setTimeout(
+        () => {
+          copyButton.textContent = 'Copy to clipboard'
+        },
+        1500
+      )
+    })
+  } else {
+    showxhrStatus(xhr)
+  }
+}
 
 function showxhrStatus (xhr) {
   copyArea.textContent = `error ${xhr.status}`

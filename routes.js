@@ -34,11 +34,21 @@ function routes (router) {
     })
   })
 
+  router.set('/lasthash', (q, r) => {
+    store.getLastHash((_, hash) => {
+      r.end(hash || '')
+    })
+  })
+
   router.set('/upload/config.json', (q, r) => {
     this.jsonBody(q, r, config => {
+      var errorReply = (err) => this.errorReply(q, r, err)
       fontello(config, (err, route, cache, store) => {
-        if (err) return this.errorReply(q, r, err)
-        r.end(store.hash())
+        if (err) return errorReply(err)
+        store.updateLastHash((err) => {
+          if (err) return errorReply(err)
+          r.end(store.hash())
+        })
       })
     })
   })

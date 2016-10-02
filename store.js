@@ -3,6 +3,19 @@ var stringify = require('json-stable-stringify')
 var leveldb = require('leveldb-mount').db(process.env.DB_PATH)
 
 module.exports = cacheStore
+
+cacheStore.getConfig = getConfig
+cacheStore.getLastHash = getLastHash
+
+function updateLastHash (hash, cb) {
+  leveldb.db.put('lasthash', hash, cb)
+}
+
+function getLastHash (cb) {
+  leveldb.db.get('lasthash', cb)
+}
+
+cacheStore.updateLastHash = getConfig
 cacheStore.getConfig = getConfig
 
 function getConfig (hash, cb) {
@@ -15,7 +28,7 @@ function cacheStore (config) {
 
   var db = leveldb.namespace(hash)
 
-  return { get: get, put: put, hash: () => hash }
+  return { get, put, hash: () => hash, updateLastHash: (cb) => updateLastHash(hash, cb) }
 
   function get (cb) {
     var stream = db.createReadStream()
