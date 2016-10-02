@@ -8,14 +8,13 @@ cacheStore.getConfig = getConfig
 cacheStore.getLastHash = getLastHash
 
 function updateLastHash (hash, cb) {
-  leveldb.db.put('lasthash', hash, cb)
+  leveldb.put('lasthash', hash, cb)
 }
 
 function getLastHash (cb) {
-  leveldb.db.get('lasthash', cb)
+  leveldb.get('lasthash', cb)
 }
 
-cacheStore.updateLastHash = getConfig
 cacheStore.getConfig = getConfig
 
 function getConfig (hash, cb) {
