@@ -20,7 +20,9 @@ function cacheStore (config) {
   function get (cb) {
     var stream = db.createReadStream()
     var cache = {}
-    stream.on('data', item => cache[item.key] = item.value)
+    stream.on('data', (item) => {
+      cache[item.key] = item.value
+    })
     stream.on('error', cb)
     stream.on('end', () => {
       if (Object.keys(cache).length === 0) return cb(`no cache for ${hash}`)

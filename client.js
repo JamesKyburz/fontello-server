@@ -55,7 +55,9 @@ window.dragDrop(body, files => {
         .on('success', () => {
           copyButton.textContent = 'Copied!'
           setTimeout(
-            () => copyButton.textContent = 'Copy to clipboard',
+            () => {
+              copyButton.textContent = 'Copy to clipboard'
+            },
             1500
           )
         })
