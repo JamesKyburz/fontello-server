@@ -8,7 +8,7 @@
     "leveldb",
     "cdn"
   ],
-  "version": "1.0.63",
+  "version": "1.0.64",
   "repository": {
     "type": "git",
     "url": "git://github.com/jameskyburz/fontello-server.git"
