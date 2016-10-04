@@ -17,7 +17,7 @@ Runs on port 2016
 * Automatic uploads to fontello-server displaying hashed links.
 * Copy links to clipboard.
 * Download of `config.json` file.
-* Works well with [fontello] draging files between the two windows.
+* Works well with [fontello] dragging files between the two windows.
 
 As [fontello] also supports drag and drop. `config.json` and `fontello zip` can be dragged and dropped between the two windows.
 
