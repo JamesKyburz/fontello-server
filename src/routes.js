@@ -2,12 +2,16 @@ var fontelloMount = require('fontello-mount')
 var store = require('./store')
 var fs = require('fs')
 var crypto = require('crypto')
+var path = require('path')
 module.exports = routes
 
 function routes (router) {
   ;['client.js', '/', 'client.css']
   .map(client =>
-    router.set(client, (q, r) => fs.createReadStream(client === '/' ? 'client.html' : client).pipe(r))
+    router.set(client, (q, r) => {
+      fs.createReadStream(path.join(__dirname, (client === '/' ? 'client.html' : client)))
+      .pipe(r)
+    })
   )
   router.set('/:hash/fontello/*', (q, r, params) => {
     store.getConfig(params.hash, (err, config) => {

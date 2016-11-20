@@ -1,7 +1,7 @@
 var service = require('server-base')
 var routes = require('./routes')
 var leveldb = require('leveldb-mount')
-var name = require('./package.json').name
+var name = require('../package.json').name
 
 service(name, routes)
 .config.assert(['PORT', 'DB_PATH'])

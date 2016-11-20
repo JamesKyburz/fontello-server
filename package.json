@@ -17,7 +17,7 @@
     "name": "James Kyburz",
     "email": "james.kyburz@gmail.com"
   },
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "predocker:build": "docker build -t server-base git@github.com:jameskyburz/server-base.git",
     "docker:build": "docker build -t fontello-server .",
@@ -26,7 +26,7 @@
     "docker:update": "npm run docker:build && docker kill fontello-server ; docker rm fontello-server ; npm run docker:run",
     "prepublish": "standard",
     "preversion": "standard",
-    "start": "node index"
+    "start": "node src/index"
   },
   "dependencies": {
     "fontello-mount": "2.0.28",
