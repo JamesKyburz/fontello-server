@@ -3,11 +3,17 @@ var store = require('./store')
 var fs = require('fs')
 var crypto = require('crypto')
 var path = require('path')
+var leveldb = require('leveldb-mount')
 module.exports = routes
 
 function routes (router) {
+  if (process.env.DB_REPL_PORT === process.env.PORT) {
+    var replRoutes = leveldb.routes(process.env.DB_PATH, { replCredentials: process.env.REPL_CREDENTIALS })
+    router.set('/repl.js', (q, r) => replRoutes.js(q, r))
+    router.set('/repl.html', (q, r) => replRoutes.html(q, r))
+  }
   ;['client.js', '/', 'client.css']
-  .map(client =>
+  .map((client) =>
     router.set(client, (q, r) => {
       fs.createReadStream(path.join(__dirname, (client === '/' ? 'client.html' : client)))
       .pipe(r)
