@@ -29,7 +29,7 @@
     "start": "node src/index"
   },
   "dependencies": {
-    "fontello-mount": "2.0.32",
+    "fontello-mount": "2.0.33",
     "leveldb-mount": "3.3.27",
     "server-base": "2.0.23"
   },
