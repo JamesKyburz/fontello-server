@@ -52,14 +52,24 @@ Then upload a new config.json downloaded from [fontello].
 # Start
 npm start
 
+### Docker
+
+Docker images hosted at https://hub.docker.com/r/jameskyburz/fontello-server/
+
+docker pull jameskyburz/fontello-server:6.9-alpine
+
+docker run:
+
 # Running in docker
 
-Check out `package.json` for docker commands.
-
+```
+ᐅ docker pull jameskyburz/fontello-server:6.9-alpine
+ᐅ docker run --rm --name fontello-server -p 2016:2016 jameskyburz/fontello-server:6.9-alpine
+```
 
 # `/repl.html`
 
-Runs on port 2017
+Runs on port `REPL_PORT`
 
 A leveldb repl is available if the server is started with env variable `REPL_CREDENTIALS` set
 
