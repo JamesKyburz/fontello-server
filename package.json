@@ -31,7 +31,7 @@
   "dependencies": {
     "fontello-mount": "2.0.34",
     "leveldb-mount": "3.3.30",
-    "server-base": "3.3.2"
+    "server-base": "3.3.4"
   },
   "license": "MIT",
   "devDependencies": {
