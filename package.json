@@ -28,8 +28,5 @@
     "leveldb-mount": "3.3.30",
     "server-base": "3.3.4"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "standard": "8.6.0"
-  }
+  "license": "MIT"
 }
