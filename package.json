@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "fontello-mount": "2.0.34",
-    "leveldb-mount": "3.3.30",
+    "leveldb-mount": "4.0.0",
     "server-base": "4.0.0"
   },
   "license": "MIT"
