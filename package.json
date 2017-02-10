@@ -24,7 +24,7 @@
     "start": "node src/index"
   },
   "dependencies": {
-    "fontello-mount": "2.0.34",
+    "fontello-mount": "2.0.35",
     "leveldb-mount": "4.0.1",
     "server-base": "4.0.5"
   },
