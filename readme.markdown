@@ -69,7 +69,7 @@ docker run:
 
 # `/repl.html`
 
-Runs on port `REPL_PORT`
+Runs on port `DB_REPL_PORT`
 
 A leveldb repl is available if the server is started with env variable `REPL_CREDENTIALS` set
 
