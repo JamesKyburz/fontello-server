@@ -1,4 +1,4 @@
-from jameskyburz/server-base:7.7-alpine-npm
+from jameskyburz/server-base:7.9-alpine-npm
 
 maintainer James Kyburz "james.kyburz@gmail.com"
 
