@@ -24,9 +24,9 @@
     "start": "node src/index"
   },
   "dependencies": {
-    "fontello-mount": "2.0.38",
-    "leveldb-mount": "4.0.15",
-    "server-base": "4.0.23"
+    "fontello-mount": "2.0.40",
+    "leveldb-mount": "4.0.18",
+    "server-base": "4.0.29"
   },
   "license": "MIT"
 }
