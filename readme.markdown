@@ -1,5 +1,7 @@
 # fontello-server
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/JamesKyburz/fontello-server.svg)](https://greenkeeper.io/)
+
 fontello cdn server
 
 Fonts are persisted in leveldb.
