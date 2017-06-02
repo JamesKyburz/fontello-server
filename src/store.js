@@ -37,7 +37,7 @@ function cacheStore (config) {
     })
     stream.on('error', cb)
     stream.on('end', () => {
-      if (Object.keys(cache).length === 0) return cb(`no cache for ${hash}`)
+      if (Object.keys(cache).length === 0) return cb(new Error(`no cache for ${hash}`))
       var type = cache.types
       delete cache.types
       delete cache.config

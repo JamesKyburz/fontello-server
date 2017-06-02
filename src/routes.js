@@ -32,7 +32,7 @@ function routes (router) {
         }
         var file = cache.files[key]
         if (!file) return this.notFound(q, r)
-        var data = new Buffer(file)
+        var data = Buffer.from(file)
         r.writeHead(200, {
           'content-type': cache.types[key],
           'etag': etag,

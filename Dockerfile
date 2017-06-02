@@ -1,6 +1,6 @@
-from jameskyburz/server-base:6.10-alpine-npm
+FROM jameskyburz/node:8.0.0-alpine
 
-maintainer James Kyburz "james.kyburz@gmail.com"
+MAINTAINER James Kyburz "james.kyburz@gmail.com"
 
 EXPOSE 2016
 EXPOSE 2017

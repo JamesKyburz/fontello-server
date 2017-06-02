@@ -1,14 +1,16 @@
 # fontello-server
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/JamesKyburz/fontello-server.svg)](https://greenkeeper.io/)
-
 fontello cdn server
 
 Fonts are persisted in leveldb.
 
 Now your projects can use your fonts with no fontello setup.
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+[![js-standard-style](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/feross/standard)
+[![Docker Build Status](https://img.shields.io/docker/build/jameskyburz/fontello-server.svg)]()
+[![downloads](https://img.shields.io/npm/dm/fontello-server.svg)](https://npmjs.org/package/fontello-server)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jameskyburz/fontello-server.svg)]()
+[![Greenkeeper badge](https://badges.greenkeeper.io/JamesKyburz/fontello-server.svg)](https://greenkeeper.io/)
 
 # browse to /
 
