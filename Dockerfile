@@ -1,4 +1,4 @@
-FROM jameskyburz/node:8.9.1-alpine
+FROM jameskyburz/node:8.9.4-alpine
 
 MAINTAINER James Kyburz "james.kyburz@gmail.com"
 
